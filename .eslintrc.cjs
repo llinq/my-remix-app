@@ -18,7 +18,7 @@ module.exports = {
     browser: true,
     commonjs: true,
     es6: true,
-    node: true,
+    node: true
   },
   ignorePatterns: ["!**/.server", "!**/.client"],
 
@@ -76,7 +76,7 @@ module.exports = {
 
     // Node
     {
-      files: [".eslintrc.cjs"],
+      files: [".eslintrc.js"],
       env: {
         node: true,
       },
