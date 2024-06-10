@@ -3,8 +3,10 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
+  base: "/router-types/manual",
   plugins: [
     remix({
+      basename: "/router-types/manual",
       routes(defineRoutes) {
         return defineRoutes((route) => {
           route("", "_index/route.tsx", { index: true });
