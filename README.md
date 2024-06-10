@@ -76,7 +76,7 @@ export default defineConfig({
     remix({
       routes(defineRoutes) {
         return defineRoutes((route) => {
-          route("/", "routes/_index/route.tsx", { index: true });
+          route("", "_index/route.tsx", { index: true });
           route("contacts/:contactId", "contacts/contacts.tsx");
           route("contacts/:contactId/edit", "contacts/contacts-edit.tsx");
           route("contacts/:contactId/destroy", "contacts/contacts-destroy.tsx");
