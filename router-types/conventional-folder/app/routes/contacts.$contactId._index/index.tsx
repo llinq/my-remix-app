@@ -11,9 +11,9 @@ import {
 import type { FunctionComponent } from "react";
 import invariant from "tiny-invariant";
 
-import type { ContactRecord } from "../data";
+import type { ContactRecord } from "../../data";
 
-import { getContact, updateContact } from "../data";
+import { getContact, updateContact } from "../../data";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   invariant(params.contactId, "Missing contactId param");
@@ -33,13 +33,13 @@ export const action = async ({
   invariant(params.contactId, "Missing contactId param");
 
   const formData = await request.formData();
-
+ 
   return updateContact(params.contactId, {
     favorite: formData.get("favorite") === "true",
   });
 }
 
-export default function Contact() {
+export default function Contacts() {
   const { contact } = useLoaderData<typeof loader>();
 
   return (

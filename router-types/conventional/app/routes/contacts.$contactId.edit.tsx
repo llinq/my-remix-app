@@ -17,9 +17,6 @@ export const action = async ({
 
   const formData = await request.formData();
 
-  console.log(formData.get('first'));
-  console.log(formData.get('last'));
-
   const updates = Object.fromEntries(formData);
 
   await updateContact(params.contactId, updates);

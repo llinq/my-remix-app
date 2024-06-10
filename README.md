@@ -1,38 +1,109 @@
-# Welcome to Remix!
+# Welcome to Remix Router Types!
 
-- [Remix Docs](https://remix.run/docs)
+Project used to deep dive in Remix configs
 
-## Development
+Don't forget install deps
+```sh
+npm install
+```
 
-From your terminal:
+## Router Types
+
+### Conventional
+[Oficial doc](https://remix.run/docs/en/main/discussion/routes#conventional-route-configuration)
+
+#### Structure
+
+> "routes" folder are required here
+
+```
+app/
+├── routes/
+│   ├── _index.tsx
+│   ├── contacts.$contacts.tsx
+│   ├── contacts.$contacts.edit.tsx
+│   ├── contacts.$contacts.destroy.tsx
+└── root.tsx
+```
+
+#### Run locally
 
 ```sh
+cd router-types/conventional
 npm run dev
 ```
 
-This starts your app in development mode, rebuilding assets on file changes.
+### Conventional Folder
+[Oficial doc](https://remix.run/docs/en/main/discussion/routes#conventional-route-folders)
 
-## Deployment
+#### Structure
 
-First, build your app for production:
+> "routes" folder are required here
 
-```sh
-npm run build
+```
+app/
+├── routes/
+│   ├── _index/
+│   │   └── route.tsx
+│   ├── contacts.$contactId._index/
+│   │   └── index.tsx
+│   ├── contacts.$contactId.destroy/
+│   │   └── index.tsx
+│   ├── contacts.$contactId.edit/
+│   │   └── index.tsx
+└── root.tsx
 ```
 
-Then run the app in production mode:
+#### Run locally
 
 ```sh
-npm start
+cd router-types/conventional-folder
+npm run dev
 ```
 
-Now you'll need to pick a host to deploy it to.
+### Manual
+[Oficial doc](https://remix.run/docs/en/main/discussion/routes#manual-route-configuration)
 
-### DIY
+#### Structure
 
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
+```ts
+import { vitePlugin as remix } from "@remix-run/dev";
+import { defineConfig } from "vite";
+import tsconfigPaths from "vite-tsconfig-paths";
 
-Make sure to deploy the output of `remix build`
+export default defineConfig({
+  plugins: [
+    remix({
+      routes(defineRoutes) {
+        return defineRoutes((route) => {
+          route("/", "routes/_index/route.tsx", { index: true });
+          route("contacts/:contactId", "routes/contacts/contacts.tsx");
+          route("contacts/:contactId/edit", "routes/contacts/contacts-edit.tsx");
+          route("contacts/:contactId/destroy", "routes/contacts/contacts-destroy.tsx");
+        });
+      },
+    }),
+    tsconfigPaths(),
+  ],
+});
+``` vite.config.ts
 
-- `build/server`
-- `build/client`
+> "routes" folder is optional so it was removed 
+
+```
+app/
+├── _index/
+│   └── route.tsx
+├── contacts/
+│   ├── contacts-destroy.tsx
+│   ├── contacts-edit.tsx
+│   ├── contacts.tsx
+└── root.tsx
+```
+
+#### Run locally
+
+```sh
+cd router-types/manual
+npm run dev
+```
