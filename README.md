@@ -77,9 +77,9 @@ export default defineConfig({
       routes(defineRoutes) {
         return defineRoutes((route) => {
           route("/", "routes/_index/route.tsx", { index: true });
-          route("contacts/:contactId", "routes/contacts/contacts.tsx");
-          route("contacts/:contactId/edit", "routes/contacts/contacts-edit.tsx");
-          route("contacts/:contactId/destroy", "routes/contacts/contacts-destroy.tsx");
+          route("contacts/:contactId", "contacts/contacts.tsx");
+          route("contacts/:contactId/edit", "contacts/contacts-edit.tsx");
+          route("contacts/:contactId/destroy", "contacts/contacts-destroy.tsx");
         });
       },
     }),
