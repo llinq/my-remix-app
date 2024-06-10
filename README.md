@@ -65,8 +65,8 @@ npm run dev
 [Oficial doc](https://remix.run/docs/en/main/discussion/routes#manual-route-configuration)
 
 #### Structure
-
-```ts vite.config.ts
+vite.config.ts
+```ts
 import { vitePlugin as remix } from "@remix-run/dev";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
