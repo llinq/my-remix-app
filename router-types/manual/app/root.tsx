@@ -32,8 +32,8 @@ export const links: LinksFunction = () => [
 export const loader = async ({
   request
 }: LoaderFunctionArgs) => {
-  const url = new URL(request.url);
-  const q = url.searchParams.get('q');
+  // const url = new URL(request.url);
+  // const q = url.searchParams.get('q');
 
   const contacts = await getContacts(q);
 

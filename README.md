@@ -12,8 +12,6 @@ npm install
 ### Conventional
 [Oficial doc](https://remix.run/docs/en/main/discussion/routes#conventional-route-configuration)
 
-#### Structure
-
 > "routes" folder are required here
 
 ```
@@ -35,8 +33,6 @@ npm run dev
 
 ### Conventional Folder
 [Oficial doc](https://remix.run/docs/en/main/discussion/routes#conventional-route-folders)
-
-#### Structure
 
 > "routes" folder are required here
 
@@ -64,7 +60,6 @@ npm run dev
 ### Manual
 [Oficial doc](https://remix.run/docs/en/main/discussion/routes#manual-route-configuration)
 
-#### Structure
 vite.config.ts
 ```ts
 import { vitePlugin as remix } from "@remix-run/dev";
