@@ -6,6 +6,7 @@ export default defineConfig({
   base: "/router-types/conventional-folder",
   plugins: [
     remix({
+      basename: "/router-types/conventional-folder",
       ignoredRouteFiles: ["**/*.css"],
     }),
     tsconfigPaths(),
